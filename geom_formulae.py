@@ -63,7 +63,7 @@ def hexagon_perimeter(side):
     return 6 * side
 
 
-def circle_area(radius) -> Number:
+def circle_area(radius):
     """
     Calculate the area of a circle
     :param radius: the radius
@@ -95,7 +95,7 @@ def equilateral_triangle_area(base, height):
     :param height:  perpendicular height of the triangle
     :return:the area of the triangle
     >>>equilateral_triangle_area(4,math.sqrt(12))
-    9
+    6.928203230275509
     """
     return 0.5*base*height
 
