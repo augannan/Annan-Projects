@@ -29,4 +29,4 @@ if __name__ == "__main__":
           square_area(sampleSide),
           "perimeter:",
           square_perimeter(sampleSide))
-    print("werwe")
+    print("")
