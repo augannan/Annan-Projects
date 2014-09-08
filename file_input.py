@@ -2,83 +2,91 @@ __author__ = 'augustine'
 
 
 import csv
-from Classes import *
-myfile = open("shapes_and_dimensions.csv", 'r')
-shape_dict = {'circle': 2, 'rhombus': 3, 'parallelogram': 3, 'polygon': 2, 'cone': 3, 'cylinder': 3, 'pyramid': 4,
-            'prism': 4, 'sector': 3, 'icosahedron': 2}
+from Shapes_to_objects import *
+file = open("shapes_solids.csv", 'r')
+shape_dict = {'Circle': 2, 'Rhombus': 3, 'Parallelogram': 3, 'Hexagon': 2, 'Cone': 3, 'Cylinder': 3,
+              'Rectangular_Prism': 4,'Trapezium': 6, 'Equilateral_triangle': 2, 'Rectangle': 3}
 
-with open("shapes_and_dimensions.csv", 'r') as csvfile:
+with open("shapes_solids.csv", 'r') as csvfile:
     shapes = csv.reader(csvfile, delimiter=' ')
     for row in shapes:
+        print(row)
         if len(row) == 0:
             print("EMPTY ROW")
         else:
             try:
-                length_check = shape_dict[row[0]] == len(row)
+                check_len = shape_dict[row[0]] == len(row)
             except KeyError as err:
-                    print("I don't understand", err.args[0], "; it is not in my dictionary")
-            if length_check is True:
-                if row[0] == 'circle':
+                    print("I don't get it!!!!!", err.args[0], ";  not in my dictionary")
+            if  check_len is True:
+                if row[0] == 'Circle':
                     try:
                         cir = Circle(float(row[1]))
                         print(cir)
                     except ValueError as err:
                         print(err.args[0])
-#cir.draw()
-                elif row[0] == 'rhombus':
+                elif row[0] == 'Rhombus':
                     try:
-                        rh = Rhombus(float(row[1]))
-                        print(rh)
- #rh.draw()
+                        rhombus = Rhombus(float(row[1]),float(row[2]))
+                        print(rhombus)
+
                     except ValueError as err:
                         print(err.args[0])
-                elif row[0] == 'parallelogram':
+                elif row[0] == 'Parallelogram':
                     try:
                         para = Parallelogram(float(row[1]), float(row[2]))
                         print(para)
-#para.draw()
+
                     except ValueError as err:
                         print(err.args[0])
-                elif row[0] == 'polygon':
+                elif row[0] == 'Hexagon':
                     try:
-                        octa = Octagon(float(row[1]))
-                        print(octa)
-#octa.draw()
+                        hexagon = Hexagon (float(row[1]))
+                        print(hexagon)
+
                     except ValueError as err:
                         print(err.args[0])
-                elif row[0] == 'pyramid':
+                elif row[0] == 'Rectangular Prism':
                     try:
-                        py = Pyramid(float(row[1]), float(row[2]))
-                        print(py)
-#py.draw()
+                        prism = Rectangular_Prism(float(row[1]), float(row[2]), float(row[3]))
+                        print(prism)
+
                     except ValueError as err:
                         print(err.args[0])
-                elif row[0] == 'prism':
+                elif row[0] == 'Trapezium':
                     try:
-                        pr = Prism(float(row[1]), float(row[2]), float(row[3]))
-                        print(pr)
-#pr.draw()
+                        trapezium = Trapezium(float(row[1]), float(row[2]), float(row[3]), float(row[4]), float(row[5]))
+                        print(trapezium)
+
                     except ValueError as err:
                         print(err.args[0])
-                elif row[0] == 'cone':
+                elif row[0] == 'Cone':
                     try:
                         co = Cone(float(row[1]), float(row[2]))
-#print(co)
+                        print(co)
+
                     except ValueError as err:
                         print(err.args[0])
-                elif row[0] == 'sector':
+                elif row[0] == 'Equilateral_triangle':
                     try:
-                        sec = Sector(float(row[1]), float(row[2]))
-                        print(sec)
-#sec.draw()
+                        triangle = Equilateral_triangle(float(row[1]))
+                        print(triangle)
+
                     except ValueError as err:
                         print(err.args[0])
-                elif row[0] == 'cylinder':
+                elif row[0] == 'Cylinder':
                     try:
                         cy = Cylinder(float(row[1]), float(row[2]))
                         print(cy)
-#cy.draw()
+
+                    except ValueError as err:
+                        print(err.args[0])
+                elif row[0] == 'Rectangle':
+                    try:
+                        rect = Rectangle(float(row[1]), float(row[2]))
+                        print (rect)
+
                     except ValueError as err:
                         print(err.args[0])
             else:
-                print("Am tired papa")
+                print(" Check and Enter all parameters for the geometric figure")
